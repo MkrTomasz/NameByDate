@@ -1,24 +1,25 @@
 import os
 from datetime import datetime
 
-def timeConvert(atime):
-  dt = atime
-  newtime = datetime.fromtimestamp(dt)
-  return newtime.date()
+#convert from numerical timestamp to date YYYY-MM-DD
+def timeConvert(time_value):
+  time_value = time_value
+  new_time_format = datetime.fromtimestamp(time_value)
+  return new_time_format.date()
 
-   
+#convert size from numerical to KB with 2 decimal places
 def sizeFormat(size):
-    newform = format(size/1024, ".2f")
-    return newform + " KB"
+    new_size_format = format(size/1024, ".2f")
+    return new_size_format + " KB"
 
 
-def createFileRecords(somepath):
-    #dictionary
+def createFileRecords(source_dir):
+
     firstDict = {}
     
-    for name in os.listdir(somepath): 
+    for name in os.listdir(source_dir): 
         
-        filepath = os.path.join(somepath, name)
+        filepath = os.path.join(source_dir, name)
         
         #main library that holds stats
         stats = os.stat(filepath)
@@ -26,7 +27,7 @@ def createFileRecords(somepath):
         attrs = {
             'File Name': name,
             'Size (KB)': sizeFormat(stats.st_size),
-            'Creation Date': timeConvert(stats.st_ctime),
+            'Creation Date': timeConvert(stats.st_birthtime),
             'Modified Date': timeConvert(stats.st_mtime),
             'Last Access Date': timeConvert(stats.st_atime),            
         }
@@ -36,8 +37,8 @@ def createFileRecords(somepath):
     return firstDict 
 
 
-def printDir(somepath):
-    dictOfDicts = createFileRecords(somepath)
+def printDir(source_dir):
+    dictOfDicts = createFileRecords(source_dir)
 
     for n, a in dictOfDicts.items():
     
