@@ -3,8 +3,8 @@ from datetime import datetime
 
 
 class MetaProcessor():
-    def __init__(self, source_dir):
-        self.source_dir = source_dir
+    def __init__(self, folder_path):
+        self.folder_path = folder_path
 
     #convert from numerical timestamp to date YYYY-MM-DD
     def timeConvert(self, time_value):
@@ -22,9 +22,9 @@ class MetaProcessor():
 
         firstDict = {}
         
-        for name in os.listdir(self.source_dir): 
+        for name in os.listdir(self.folder_path): 
             
-            filepath = os.path.join(self.source_dir, name)
+            filepath = os.path.join(self.folder_path, name)
             
             #main library that holds stats
             stats = os.stat(filepath)

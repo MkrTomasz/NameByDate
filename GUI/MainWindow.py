@@ -1,6 +1,7 @@
 from PyQt6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QPushButton, QLabel, QFileDialog
 from MainPackage.MetaExtract import MetaProcessor
 
+
 class Window(QMainWindow):
     def __init__(self):
         super().__init__()
@@ -39,4 +40,7 @@ class Window(QMainWindow):
 
     def clickRunButton(self):
         processor = MetaProcessor(self.folder_path)
-        processor.printDir()
+        try: 
+            processor.printDir()
+        except OSError:
+            pass
