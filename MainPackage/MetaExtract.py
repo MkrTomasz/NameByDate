@@ -47,6 +47,6 @@ def printDir(somepath):
         print()
 
 
-if __name__ == "__main__":
+#if __name__ == "__main__":
    
-    printDir('F:/pytun/NameByDate/test')
+    #printDir('')

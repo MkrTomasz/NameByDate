@@ -8,8 +8,8 @@ class Window(QMainWindow):
 
         parentLayout = QVBoxLayout()
 
-        self.label = QLabel("Test")
-        self.button = QPushButton("Click me")
+        self.label = QLabel("No path selected")
+        self.button = QPushButton("Choose folder path")
 
         self.button.clicked.connect(self.clickButton)
 
@@ -23,12 +23,7 @@ class Window(QMainWindow):
 
     def clickButton(self):
         folder_path = str(QFileDialog.getExistingDirectory(self, "Select folders with files to be soreted"))
-        self.label.setText(folder_path)
-    
-
-app = QApplication([])
-
-window = Window()
-
-window.show()
-app.exec()
+        if folder_path != "":
+            self.label.setText(folder_path)
+        else:
+            self.label.setText("No path selected")
