@@ -51,3 +51,5 @@ class MetaProcessor():
             for i, j in a.items():
                 print(f"{i}: {j}")
             print()
+
+# dictOfDicts to be removed, first dict to be just a dict with "name": "modification date" convention 
