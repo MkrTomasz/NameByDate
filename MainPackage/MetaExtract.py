@@ -44,10 +44,9 @@ class MetaProcessor():
 
     def printDir(self):
         dictOfDicts = self.createFileRecords()
-
-        for n, a in dictOfDicts.items():
         
+        for n, a in dictOfDicts.items():
+            print()
             print(f"Displaying for file: '{n}':")
             for i, j in a.items():
-                print(f"{i}: {j}")
-            print()
+                print(f"{i}: {j}")            

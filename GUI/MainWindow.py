@@ -1,4 +1,5 @@
 from PyQt6.QtWidgets import QMainWindow, QWidget, QVBoxLayout, QPushButton, QLabel, QFileDialog
+from PyQt6.QtGui import QIcon
 from MainPackage.MetaExtract import MetaProcessor
 
 
@@ -26,6 +27,8 @@ class Window(QMainWindow):
         centerWidget = QWidget()
         centerWidget.setLayout(parentLayout)
         self.setCentralWidget(centerWidget)
+        self.setWindowTitle("NameByDate")
+        self.setWindowIcon(QIcon("GUI/Image.png"))
 
 
     def clickPathButton(self):
