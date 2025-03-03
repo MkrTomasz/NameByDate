@@ -33,7 +33,7 @@ class Window(QMainWindow):
 
     def clickPathButton(self):
         self.folder_path = str(QFileDialog.getExistingDirectory(self, "Select folders with files to be soreted"))
-        if self.folder_path != "":
+        if self.folder_path:
             self.label.setText(self.folder_path)
             return self.folder_path
         else:
@@ -44,6 +44,6 @@ class Window(QMainWindow):
     def clickRunButton(self):
         processor = MetaProcessor(self.folder_path)
         try: 
-            processor.printDir()
+            processor.renameFiles()
         except OSError:
             pass

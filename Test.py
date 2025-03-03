@@ -1,7 +1,7 @@
 from MainPackage.MetaExtract import MetaProcessor
 
 #pass source path into MetaProcessor
-output = MetaProcessor("F:/pytun/test NameByDate")
+output = MetaProcessor("C:/Users/Lenovo/OneDrive/Desktop/test")
 
 #test access to file creation date
 #print(output.createFileRecords())
@@ -10,7 +10,11 @@ output = MetaProcessor("F:/pytun/test NameByDate")
 #print(output.sortByModDate())
 
 #test renaming files in the dict
-#print(output.renameInDict())
+print(output.addNewName())
 
 #test files renaming
-output.renameFiles()
+#output.renameFiles()
+
+'''303301.jpg
+828920.png
+tapeciarnia.pl-242395_dark_souls.jpg'''
